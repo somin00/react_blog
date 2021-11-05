@@ -18,6 +18,7 @@ const AuthForm = ({ type, history }) => {
   const { user, userError } = useSelector((state) => ({
     user: state.users.user,
     userError: state.users.userError,
+    isLogin: state.users.isLogin,
   }));
 
   const onChangeEmail = (e) => {
@@ -54,13 +55,16 @@ const AuthForm = ({ type, history }) => {
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
       dispatch(isLogin(user));
+      //수업듣고 돌아올게요잉 ㅇ잉
       history.push('/');
     }
-
+    // 스토어에서 user와 isLogin을 초기화해주는 액션을 만들어서 활용하면 해결
+    // 지금 문제가 로그아웃을하면 리덕스 스토아에서 user를 안 없애줘서 생기는 문제라
+    // 초기화 액션 만들어주고 로그아웃할때 호출하면 쉽게 해결 가능
     if (userError) {
       setError(userError.message);
     }
-  }, [error, history, user, userError]);
+  }, [dispatch, error, history, user, userError]);
 
   return (
     <Container>

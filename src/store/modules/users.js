@@ -10,6 +10,8 @@ const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] =
 
 const ISLOGIN = 'users/ISLOGIN';
 
+const RESETUSER = 'users/RESETUSER';
+
 export const login = (data) => {
   return {
     type: LOGIN,
@@ -28,6 +30,12 @@ export const isLogin = (user) => {
   return {
     type: ISLOGIN,
     payload: user,
+  };
+};
+
+export const resetUser = () => {
+  return {
+    type: RESETUSER,
   };
 };
 const loginSaga = createRequestSaga(LOGIN, authApi.login_axios);
@@ -74,6 +82,12 @@ export default function users(state = initialState, action) {
       return {
         ...state,
         isLogin: action.payload,
+      };
+    case RESETUSER:
+      return {
+        ...state,
+        user: null,
+        isLogin: null,
       };
     default:
       return state;

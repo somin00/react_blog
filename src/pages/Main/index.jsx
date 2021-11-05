@@ -1,17 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { withRouter } from 'react-router';
 import Post from '../../components/Post/Post';
 import Home from '../../layouts/home';
 import { Button, Container } from '../Main/styles';
 
-const Main=()=>{
-    return (
-        <Home>
-           <Container>
-            <Button>글 작성하기</Button>
-            <Post />
-           </Container> 
-        </Home>
-    )
-}
+const Main = ({ history }) => {
+  const isLogin = useSelector((state) => state.users.isLogin);
+  const onClick = () => {
+    history.push('/writing');
+  };
+  return (
+    <Home>
+      <Container>
+        <div style={{ height: '30px' }}>
+          {isLogin && <Button onClick={onClick}>글 작성하기</Button>}
+        </div>
+        <Post />
+      </Container>
+    </Home>
+  );
+};
 
-export default Main;
+export default withRouter(Main);

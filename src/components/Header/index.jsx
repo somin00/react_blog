@@ -3,13 +3,12 @@ import { useSelector } from 'react-redux';
 import { Container } from './styles';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { isLogin } from '../../store/modules/users';
+import { isLogin, resetUser } from '../../store/modules/users';
 import { withRouter } from 'react-router';
 
 const Header = ({ history }) => {
   const user = useSelector((state) => state.users.isLogin);
   const dispatch = useDispatch();
-  console.log(user);
 
   const onLogout = useCallback(() => {
     axios
@@ -18,7 +17,7 @@ const Header = ({ history }) => {
       })
       .then(() => {
         localStorage.removeItem('user');
-        dispatch(isLogin(null));
+        dispatch(resetUser());
       })
       .catch((e) => console.log(e));
   }, [dispatch]);

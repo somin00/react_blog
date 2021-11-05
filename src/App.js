@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router';
 import Login from './pages/Auth/Login';
 import SignUp from './pages/Auth/SignUp';
 import Main from './pages/Main';
+import Writing from './pages/Writing';
 import { useDispatch } from 'react-redux';
 import { isLogin } from './store/modules/users';
 
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/" component={Main} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/writing" component={Writing} />
       </Switch>
     </div>
   );
