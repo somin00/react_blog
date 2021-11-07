@@ -9,6 +9,7 @@ import Main from './pages/Main';
 import Writing from './pages/Writing';
 import { useDispatch } from 'react-redux';
 import { isLogin } from './store/modules/users';
+import PostView from './pages/PostView';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/writing" component={Writing} />
+        <Route path="/:postId" component={PostView} />
       </Switch>
     </div>
   );

@@ -25,10 +25,14 @@ const Header = ({ history }) => {
   const onLogin = useCallback(() => {
     history.push('/login');
   }, [history]);
+
+  const onMoveMain = () => {
+    history.push('/');
+  };
   return (
     <div>
       <Container>
-        <h1>소민 블로그</h1>
+        <h1 onClick={onMoveMain}>소민 블로그</h1>
         {user ? (
           <button onClick={onLogout}>로그아웃</button>
         ) : (
