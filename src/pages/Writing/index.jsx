@@ -67,10 +67,8 @@ const Writing = ({ history }) => {
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      const convertBody = draftToHtml(
-        convertToRaw(editorState.getCurrentContent()),
-      );
-      const data = { title, body: convertBody, tags: hashtag };
+      const convertBody = convertToRaw(editorState.getCurrentContent());
+      const data = { title, body: JSON.stringify(convertBody), tags: hashtag };
       dispatch(post(data));
     },
     [dispatch, editorState, hashtag, title],

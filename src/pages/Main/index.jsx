@@ -1,3 +1,5 @@
+import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -10,6 +12,7 @@ const Main = ({ history }) => {
   const onClick = () => {
     history.push('/writing');
   };
+
   return (
     <Home>
       <Container>
