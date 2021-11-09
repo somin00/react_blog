@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router';
-import { getAll, post } from '../../store/modules/posts';
+import { getAll } from '../../store/modules/posts';
 import { Box, Container } from './styles';
 
 const Post = ({ history }) => {
@@ -20,7 +20,6 @@ const Post = ({ history }) => {
       convertFromRaw(JSON.parse(contents)),
     );
     const result = draftToHtml(convertToRaw(rawData.getCurrentContent()));
-    console.log(result);
     return result;
   };
 

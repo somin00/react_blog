@@ -11,6 +11,10 @@ export const Container = styled.div`
     margin: 0 18rem 0 22rem;
     color: gray;
   }
+  h1,
+  button:hover {
+    cursor: pointer;
+  }
 
   button {
     width: 5rem;

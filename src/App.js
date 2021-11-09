@@ -10,6 +10,7 @@ import Writing from './pages/Writing';
 import { useDispatch } from 'react-redux';
 import { isLogin } from './store/modules/users';
 import PostView from './pages/PostView';
+import Edit from './pages/Edit';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ function App() {
       dispatch(isLogin(user));
     }
   }, [dispatch]);
+
+  // delete api/posts/:id -> remove
+  // fetch api/posts/:id {title, body, tags} -> update
   return (
     <div>
       <Switch>
@@ -26,6 +30,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/writing" component={Writing} />
+        <Route path="/edit" component={Edit} />
         <Route path="/:postId" component={PostView} />
       </Switch>
     </div>

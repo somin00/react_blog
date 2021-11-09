@@ -13,4 +13,8 @@ export const Container = styled.div`
 export const Box = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 10px;
+
+  h3:hover {
+    cursor: pointer;
+  }
 `;

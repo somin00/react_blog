@@ -19,3 +19,18 @@ export const get_axios = () => {
     withCredentials: true,
   });
 };
+
+export const update_axios = ({ id, title, body, tags }) => {
+  return axios.patch(
+    `http://localhost:4000/api/posts/${id}`,
+    { title, body, tags },
+    { withCredentials: true },
+  );
+};
+
+// delete api/posts/:id -> remove
+export const remove_axios = (id) => {
+  return axios.delete(`http://localhost:4000/api/posts${id}`, {
+    withCredentials: true,
+  });
+};
