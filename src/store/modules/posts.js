@@ -75,6 +75,7 @@ const initialState = {
   postError: null,
   posts: null,
   postsError: null,
+  postsPage: 1,
   updatePost: null,
   updatePostError: null,
   remove: null,
@@ -104,6 +105,7 @@ export default function posts(state = initialState, action) {
       return {
         ...state,
         posts: action.payload,
+        postsPage: parseInt(action.meta.headers['last-page'], 10),
         postError: null,
       };
     case GET_ALL_FAILURE:

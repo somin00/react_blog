@@ -14,8 +14,8 @@ export const read_axios = (id) => {
   });
 };
 
-export const get_axios = () => {
-  return axios.get('http://localhost:4000/api/posts', {
+export const get_axios = (page = 1) => {
+  return axios.get(`http://localhost:4000/api/posts?page=${page}`, {
     withCredentials: true,
   });
 };
